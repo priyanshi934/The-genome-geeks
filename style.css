@@ -1,0 +1,447 @@
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F5F5;
+}
+
+/* Container */
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 20%;
+    background-color: #8F87E5;
+    padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo h2 {
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    flex-grow: 1;
+}
+
+ul li {
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 8px;
+}
+
+ul li:hover {
+    background-color: #6058B3;
+}
+
+/* Content */
+.content {
+    width: 80%;
+    padding: 20px;
+    background-color: #FFF;
+    overflow-y: auto;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #6058B3;
+}
+
+.search-bar {
+    width: 50%;
+    padding: 10px;
+    margin: 20px 0;
+    font-size: 1.2em;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+}
+
+/* Metrics */
+.metrics {
+    display: flex;
+    justify-content: space-between;
+    border:'1';
+    margin: 20px 0;
+}
+
+.metrics div {
+    background-color: #FEECEC;
+    padding: 20px;
+    border-radius: 18px;
+    border: #5040A3;
+    border-color: red;
+    border-width: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #4207af;
+    width: 18%;
+}
+
+.graph-container {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.graph-container img {
+    width: 80 px;
+    height: 250px;
+    border-radius: 10px;
+    border: 1px solid #DDD;
+   margin-left: 520px;
+}
+
+/* Call-to-action button */
+.cta-button {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: #6058B3;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #5040A3;
+}
+
+.chat-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+   
+  .chat-box {
+    display: block;
+    position: fixed;
+    bottom: 100px;
+    left: 290px;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .chat-body {
+    height: 350px;
+    border-top: 1px solid #ccc;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+
+/* Profile Page Styling */
+#profile {
+  background-color: #fdfdfd;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+#profile h1 {
+  color: #6058B3;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#profile form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#profile label {
+  font-size: 1.2em;
+  color: #555;
+  margin: 10px 0 5px;
+  width: 100%;
+  text-align: left;
+}
+
+#profile input[type="text"],
+#profile input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#profile input[type="text"]:focus,
+#profile input[type="number"]:focus {
+  border-color: #6058B3;
+}
+
+#profile button {
+  background-color: #6058B3;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#profile button:hover {
+  background-color: #5040A3;
+}
+
+/* Styling for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  #profile {
+      width: 90%;
+      padding: 20px;
+  }
+
+  #profile h1 {
+      font-size: 2em;
+  }
+
+  #profile input[type="text"],
+  #profile input[type="number"] {
+      font-size: 1em;
+  }
+
+  #profile button {
+      font-size: 1em;
+      padding: 10px 25px;
+  }
+}
+
+
+/* questionnarire Page Styling */
+#questionnaire {
+  background-color: #fdfdfd;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+#questionnaire h1 {
+  color: #6058B3;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#questionnaire form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#questionnaire label {
+  font-size: 1.2em;
+  color: #555;
+  margin: 10px 0 5px;
+  width: 100%;
+  text-align: left;
+}
+
+#questionnaire input[type="text"],
+#questionnaire input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#questionnaire input[type="radio"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#questionnaire input[type="text"]:focus,
+#questionnaire input[type="radio"]:focus,
+#questionnaire input[type="number"]:focus {
+  border-color: #6058B3;
+}
+
+#questionnaire button {
+  background-color: #6058B3;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#questionnaire button:hover {
+  background-color: #5040A3;
+}
+
+/* Styling for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  #questionnaire {
+      width: 90%;
+      padding: 20px;
+  }
+
+  #questionnaire h1 {
+      font-size: 2em;
+  }
+
+  #questionnaire input[type="text"],
+  #questionnaire input[type="radio"],
+  #questionnaire input[type="number"] {
+      font-size: 1em;
+  }
+
+  #questionnaire button {
+      font-size: 1em;
+      padding: 10px 25px;
+  }
+}
+
+/* Medical History Page Styling */
+#history {
+  background-color: #fdfdfd;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+#history h1 {
+  color: #6058B3;
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#history form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#history label {
+  font-size: 1.2em;
+  color: #555;
+  margin: 10px 0 5px;
+  width: 100%;
+  text-align: left;
+}
+
+#history input[type="text"],
+#history input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#history input[type="text"]:focus,
+#history input[type="number"]:focus {
+  border-color: #6058B3;
+}
+
+#history button {
+  background-color: #6058B3;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.2em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#history button:hover {
+  background-color: #5040A3;
+}
+
+/* Styling for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  #history {
+      width: 90%;
+      padding: 20px;
+  }
+
+  #history h1 {
+      font-size: 2em;
+  }
+
+  #history input[type="text"],
+  #history input[type="number"] {
+      font-size: 1em;
+  }
+
+  #history button {
+      font-size: 1em;
+      padding: 10px 25px;
+  }
+
+}
