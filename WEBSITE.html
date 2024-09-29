@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+   
+    <title>Genome Geeks</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <div class="sidebar">
+            <div class="logo">
+                <h2><img src="C:\Users\priya\Downloads\Prisha Docs\8c22ff82-a3ef-4b26-8038-8276a7671eea.jpg" width="200px" height="120px"> </h2>
+        
+            </div>
+            <ul>
+                <li onclick="openPage('dashboard')">Dashboard</li>
+                <li onclick="openPage('profile')">My Profile</li>
+                <li onclick="openPage('questionnaire')">Our Questionnaire</li>
+                <li onclick="openPage('history')">Medical History</li>
+                <li onclick="openPage('personalized')">Personalized Medicine</li>
+                <li onclick="openPage('settings')">Settings</li>
+                <li onclick="openPage('AIAssistant')">AI Assistant</li>
+            </ul>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="content">
+            <!-- Dashboard -->
+            <div id="dashboard">
+                <h1>Good Morning Priyanshi Grover</h1><br>
+                <input type="text" id="chatInput" size= "50" style="width: 200px;" placeholder="Search for any medicine..." />
+<button style="background-color: rgb(154, 131, 236);padding: 10px 25px;" onclick="sendMessage()">Ask</button>
+
+<div id="chatResponse"></div>
+
+                <div class="metrics">
+                    <div>Hemoglobin <br><br><b>13</b></div>
+                    <div>Blood Pressure <br><br><b>95/65</b> </div>
+                    <div>Sugar Level <br><br><b>86 mg/dl</b> </div>
+                    <div>BMI<br><br><b>22.5</b> </div>
+                    <div>Cholesterol<br><br> <b>98 mg/dl</b></div>
+                </div>
+                
+                <div class="graph-container1">
+                    <table><tr>
+                        <td><img src="report2.jpeg" border=1 width="500px" height="300px" alt="Health Report" ></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                        <td><img src="report1.jpg" alt="Health Graph" ></td>
+                    </tr></table>
+                    
+           
+                </div>
+                <button class="cta-button">Get Your Genome-Based Diet Now!</button>
+            </div>
+
+            <!-- My Profile -->
+            <div id="profile" style="display:none;">
+                <h1>My Profile</h1>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+                    <label for="gender">Gender:</label>
+                    <input type="text" id="gender" name="gender" placeholder="Enter your gender"><br><br>
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age"><br><br>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <!-- Questionnaire -->
+            <div id="questionnaire" style="display:none;">
+                <h1>Our Questionnaire</h1>
+                <form>
+                    <label for="allergies">Do you have any allergies?</label>
+                    <input type="text" id="allergies" name="allergies"> 
+                    <br><br>
+
+                    <label for="medications">Are you on any medications?</label>
+                    <input type="text" id="medications" name="medications"><br><br>
+
+                    <label for="conditions">Do you have any chronic conditions (e.g., Diabetes, Hypertension)?</label>
+                    <input type="text" id="conditions" name="conditions"><br><br>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <!-- Medical History -->
+            <div id="history" style="display:none;">
+                <h1>Medical History</h1>
+                <form>
+                    <label for="past_conditions">Have you had any past illnesses?</label>
+                    <input type="text" id="past_conditions" name="past_conditions"><br><br>
+
+                    <label for="surgeries">Any surgeries you have undergone?</label>
+                    <input type="text" id="surgeries" name="surgeries"><br><br>
+
+                    <label for="family_history">Any family history of diseases?</label>
+                    <input type="text" id="family_history" name="family_history"><br><br>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <!-- Personalized Medicine -->
+            <div id="personalized" style="display:none;">
+                <h1>Personalized Medicines</h1>
+                <p>Based on your questionnaire, here are some recommended medicines:</p>
+                <ul>
+                    <li>Medicine A</li>
+                    <li>Medicine B</li>
+                    <li>Medicine C</li>
+                </ul>
+            </div>
+
+            <!-- Settings -->
+            <div id="settings" style="display:none;">
+                <h1>Settings</h1>
+                <p>This is where you can manage your account and preferences.</p>
+            </div>
+            <!-- AImAssistant -->
+            <div id="AIAssistant" style="display:none;">
+                <h1>AI Assistant</h1>
+                 <!-- Chat button -->
+                <button class="chat-button" onclick="toggleChat()">💬</button>
+
+                <!-- Chat box -->
+                <div class="chat-box" id="chat-box">
+                    <div class="chat-header">
+                    Chat with us!
+                    </div>
+                    <div class="chat-body">
+                    <!--<iframe src="https://console.dialogflow.com/api-client/demo/embedded/c8358e3d-44fa-4270-b59b-75d2d6e31d46"></iframe>
+                    -->
+                    <iframe
+                    allow="microphone;"
+                    width="350"
+                    height="430"
+                    src="https://console.dialogflow.com/api-client/demo/embedded/e62f4810-f913-40b1-88c6-4323036f2a5a">
+                    </iframe></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    
+    
+    <input type="text" id="search-input" placeholder="Type your query here">
+    <button onclick="submitQuery()">Search</button>
+
+    <div id="response-output"></div>
+
+    <script>
+        async function submitQuery() {
+            const query = document.getElementById('search-input').value;
+
+            const response = await fetch('http://localhost:3000/chatgpt-query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: query })
+            });
+
+            const data = await response.json();
+            document.getElementById('response-output').innerText = data.reply;
+        }
+    </script>
+</body>
+</html>
